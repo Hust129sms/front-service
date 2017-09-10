@@ -12,8 +12,10 @@ import { CommandIcon } from './commands';
 import { ProductIcon } from './products';
 import { CategoryIcon } from './categories';
 import { ReviewIcon } from './reviews';
+import { GroupIcon } from './groups'
 
 const items = [
+    { name: 'groups', icon: <GroupIcon />},
     { name: 'customers', icon: <VisitorIcon /> },
     { name: 'segments', icon: <LabelIcon /> },
     { name: 'commands', icon: <CommandIcon /> },

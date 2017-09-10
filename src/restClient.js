@@ -1,4 +1,12 @@
-import { simpleRestClient } from 'admin-on-rest';
+import { simpleRestClient, fetchUtils } from 'admin-on-rest';
 
-const restClient = simpleRestClient('http://localhost:3000');
+const httpClient = (url, options = {}) => {
+    if (!options.headers) {
+        options.headers = new Headers({ Accept: 'application/json' });
+    }
+    const token = localStorage.getItem('token');
+    options.headers.set('Authorization', `Bearer ${token}`);
+    return fetchUtils.fetchJson(url, options);
+}
+const restClient = simpleRestClient('http://192.168.1.142:5000/api_v1', httpClient);
 export default (type, resource, params) => new Promise(resolve => setTimeout(() => resolve(restClient(type, resource, params)), 500));

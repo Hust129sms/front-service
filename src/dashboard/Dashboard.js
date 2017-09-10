@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import withWidth from 'material-ui/utils/withWidth';
-import { AppBarMobile, GET_LIST, GET_MANY } from 'admin-on-rest';
+import { AppBarMobile, GET_LIST, GET_MANY, GET_ONE } from 'admin-on-rest';
 
 import Welcome from './Welcome';
 import MonthlyRevenue from './MonthlyRevenue';
@@ -24,7 +24,7 @@ class Dashboard extends Component {
     componentDidMount() {
         const d = new Date();
         d.setDate(d.getDate() - 30);
-        restClient(GET_LIST, 'commands', {
+        /* restClient(GET_LIST, 'commands', {
                 filter: { date_gte: d.toISOString() },
                 sort: { field: 'date', order: 'DESC' },
                 pagination: { page: 1, perPage: 50 },
@@ -40,13 +40,13 @@ class Dashboard extends Component {
                         stats.pendingOrders.push(order);
                     }
                     return stats;
-                }, { revenue: 0, nbNewOrders: 0, pendingOrders: [] })
+                }, { revenue: 100, nbNewOrders: 0, pendingOrders: [] })
             )
             .then(({ revenue, nbNewOrders, pendingOrders }) => {
                 this.setState({
                     revenue: revenue.toLocaleString(undefined, {
                         style: 'currency',
-                        currency: 'USD',
+                        currency: 'CNY',
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 0,
                     }),
@@ -64,7 +64,7 @@ class Dashboard extends Component {
             }, {}))
             .then(customers => this.setState({ pendingOrdersCustomers: customers }));
 
-        restClient(GET_LIST, 'reviews', {
+            restClient(GET_LIST, 'reviews', {
                 filter: { status: 'pending' },
                 sort: { field: 'date', order: 'DESC' },
                 pagination: { page: 1, perPage: 100 },
@@ -94,7 +94,18 @@ class Dashboard extends Component {
             .then(newCustomers => {
                 this.setState({ newCustomers });
                 this.setState({ nbNewCustomers: newCustomers.reduce(nb => ++nb, 0) })
+            })*/
+        restClient(GET_ONE, 'balance', { id: '1' })
+            .then((response) => {
+                if (response.status < 200 || response.status >= 300) {
+                    throw new Error(response.statusText);
+                }
+                return response.data;
             })
+            .then(
+                ({ balance }) => {this.setState({ revenue: balance+'元'
+                })}
+            );
     }
 
     render() {
@@ -112,7 +123,7 @@ class Dashboard extends Component {
         const { width } = this.props;
         return (
             <div>
-                {width === 1 && <AppBarMobile title="Posters Galore Admin" />}
+                {width === 1 && <AppBarMobile title="飞羽管理系统" />}
                 <Welcome style={styles.welcome} />
                 <div style={styles.flex}>
                     <div style={styles.leftCol}>

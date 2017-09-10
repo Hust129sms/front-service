@@ -11,6 +11,6 @@ const styles = {
 export default translate(({ value, translate }) => (
     <Card style={styles.card}>
         <DollarIcon style={styles.icon} />
-        <CardTitle title={value} subtitle={translate('pos.dashboard.monthly_revenue')} />
+        <CardTitle title={ value } subtitle={translate('pos.dashboard.monthly_revenue')} />
     </Card>
 ));
