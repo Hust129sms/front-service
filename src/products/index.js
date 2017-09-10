@@ -21,6 +21,7 @@ import {
     TabbedForm,
     TextField,
     TextInput,
+    BooleanInput
 } from 'admin-on-rest';
 import Icon from 'material-ui/svg-icons/image/collections';
 import Chip from 'material-ui/Chip';
@@ -30,7 +31,6 @@ import CustomerReferenceField from '../visitors/CustomerReferenceField';
 import StarRatingField from '../reviews/StarRatingField';
 import GridList from './GridList';
 import Poster from './Poster';
-
 
 
 export const ProductIcon = Icon;
@@ -69,6 +69,9 @@ export const ProductCreate = (props) => (
             <FormTab label="resources.groups.tabs.details">
                 <TextInput source="group_name" validation={{ required: true }} style={{ display: 'inline-block' }} elStyle={{ width: '10em' }} />
                 <TextInput source="group_shortname" style={{ display: 'inline-block', marginLeft: 16 }} elStyle={{ width: '5em' }} />
+                <FileInput source="files" label="Related files" accept="application/jpg" style={{ display: 'inline-block' }} placeholder={<p>Drop your file here</p>}>
+                    <ImageField source="src" title="title" />
+                </FileInput>
                 <AutocompleteInput source="group_type" choices={[
                     { id: 'Association', name: 'association'},
                     { id: 'Student_Union', name: 'student_union'},
@@ -77,15 +80,13 @@ export const ProductCreate = (props) => (
                     { id: 'College', name: 'college'},
                     { id: 'Match', name: 'match'},
                 ]}/>
-                <FileInput source="files" label="Related files" accept="application/jpg" placeholder={<p>Drop your file here</p>}>
-                    <ImageField source="src" title="title" />
-                </FileInput>
+
                 <LongTextInput source="group_description" options={{ rows: 5, fullWidth: true }} validation={{ required: true }} />
             </FormTab>
             <FormTab label="resources.groups.tabs.manager">
                 <TextInput source="manager_name" validation={{ required: true }} />
                 <TextInput source="telephone" validation={{ required: true }} validate={[ equLength(11) ]} style={{ display: 'inline-block' }} elStyle={{ width: '6em' }} />
-                <CheckboxGroupInput source="telephone_visiable" style={{ display: 'inline-block', marginLeft: 16 }} choices={[{ id: 'yes', name: 'tele_public' }]} />
+                <BooleanInput source="telephone_visiable" style={{ display: 'inline-block', marginTop: 0, verticalAlign: 'bottom' }} choices={[{ id: 'yes', name: 'tele_public' }]} />
                 <TextInput source="email" validation={{ required: true }} validate={[ errorEmail ]} elStyle={{ width: '12em' }} />
                 <NumberInput source="height" validation={{ required: true }}  elStyle={{ width: '5em' }} />
                 <ReferenceInput source="category_id" reference="categories" allowEmpty>

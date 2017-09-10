@@ -15,6 +15,7 @@ const styles = {
 const GridList = ({ ids, isLoading, data, currentSort, basePath, rowStyle }) => (
     <div style={styles.root}>
         <MuiGridList cellHeight={180} cols={4} style={styles.gridList}>
+
             {ids.map((id) => (
                 <GridTile
                     key={id}
@@ -26,6 +27,7 @@ const GridList = ({ ids, isLoading, data, currentSort, basePath, rowStyle }) => 
                     <img src={data[id].thumbnail} alt="" />
                 </GridTile>
             ))}
+
         </MuiGridList>
     </div>
 );
