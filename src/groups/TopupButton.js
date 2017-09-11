@@ -5,7 +5,6 @@ import FlatButton from 'material-ui/FlatButton';
 import AccountBalanceWallet from 'material-ui/svg-icons/action/account-balance-wallet';
 import { translate } from 'admin-on-rest';
 import compose from 'recompose/compose';
-import { reviewApprove as reviewApproveAction } from './reviewActions';
 
 class TopupButton extends Component {
     handleTopup = () => {
