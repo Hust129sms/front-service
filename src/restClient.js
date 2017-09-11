@@ -8,5 +8,5 @@ const httpClient = (url, options = {}) => {
     options.headers.set('Authorization', `Bearer ${token}`);
     return fetchUtils.fetchJson(url, options);
 }
-const restClient = simpleRestClient('http://192.168.1.141:5000/api_v1', httpClient);
+const restClient = simpleRestClient('http://localhost:5000/api_v1', httpClient);
 export default (type, resource, params) => new Promise(resolve => setTimeout(() => resolve(restClient(type, resource, params)), 500));

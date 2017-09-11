@@ -65,6 +65,7 @@ export default {
         },
         groups: {
             name: '圈子 |||| 圈子',
+            my_group: '我的圈子',
             fields: {
                 group_type: '圈子类型',
                 group_name: '圈子名称',
