@@ -14,6 +14,7 @@ export default {
             pending_reviews: '回复',
             new_customers: '成员清单',
             pending_orders: '进行中订单',
+            top_up: '充值',
             order: {
                 items: 'by %{customer_name}, one item |||| by %{customer_name}, %{nb_items} items',
             },
@@ -161,6 +162,8 @@ export default {
                 reviewer: 'Reviewer',
             },
         },
-
+        user:{
+            name:'用户',
+        }
     },
 };

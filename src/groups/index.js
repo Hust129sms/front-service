@@ -53,7 +53,6 @@ export const GroupList = (props) => (
             <TextField source="members" style={{ textAlign: 'right' }} />
             <TextField source="balance" style={{ textAlign: 'right' }} />
             <EditButton />
-
         </Datagrid>
     </List>
 );
@@ -66,12 +65,12 @@ export const GroupCreate = (props) => (
                 <TextInput source="group_name" validation={{ required: true }} validate={[required]} style={{ display: 'inline-block',  }} elStyle={{ width: '10em' }} vali />
                 <TextInput source="group_shortname" style={{ display: 'inline-block', marginLeft: 16 }} elStyle={{ width: '5em' }} />
                 <AutocompleteInput validate={[required]} source="group_type" choices={[
-                    { id: 'Association', name: 'association'},
-                    { id: 'Student_Union', name: 'student_union'},
-                    { id: 'Team', name: 'team'},
-                    { id: 'Class', name: 'classes'},
-                    { id: 'College', name: 'college'},
-                    { id: 'Match', name: 'match'},
+                    { id: 'Association', name: '社团/协会'},
+                    { id: 'Student_Union', name: '学生会'},
+                    { id: 'Team', name: '团队'},
+                    { id: 'Class', name: '班级'},
+                    { id: 'College', name: '学院'},
+                    { id: 'Match', name: '赛事'},
                 ]}/>
 
                 <FileInput source="files" label="Related files" accept="application/jpg" placeholder={<p>Drop your file here</p>}>
@@ -82,7 +81,7 @@ export const GroupCreate = (props) => (
             <FormTab label="resources.groups.tabs.manager">
                 <TextInput validate={[required]} source="manager_name" validation={{ required: true }} />
                 <TextInput source="telephone" validation={{ required: true }} validate={[equLength(11), required]} style={{ display: 'inline-block' }} elStyle={{ width: '6em' }} />
-                <CheckboxGroupInput source="telephone_visiable" style={{ display: 'inline-block', marginLeft: 16 }} choices={[{ id: 'yes', name: 'tele_public' }]} />
+                <CheckboxGroupInput style={{ display: 'inline-block', verticalAlign: 'top', marginLeft: 16, width: '7em',marginTop: 16 }} choices={[{ id: 'yes', name: 'resources.groups.fields.tele_public' }]} />
                 <TextInput source="email" validation={{ required: true }} validate={[errorEmail]} elStyle={{ width: '12em' }} />
             </FormTab>
         </TabbedForm>
@@ -96,17 +95,17 @@ const GroupTitle = ({ record }) => {
 export const GroupEdit = (props) => (
     <Edit titile={<GroupTitle />} {...props}>
         <TabbedForm>
-            <FormTab>
+            <FormTab label="resources.groups.tabs.details">
                 <DisabledInput source="id" />
                 <TextInput source="group_name" validation={{ required: true }} style={{ display: 'inline-block' }} elStyle={{ width: '10em' }} vali />
                 <TextInput source="group_shortname" style={{ display: 'inline-block', marginLeft: 16 }} elStyle={{ width: '5em' }} />
                 <AutocompleteInput source="group_type" choices={[
-                    { id: 'Association', name: 'association'},
-                    { id: 'Student_Union', name: 'student_union'},
-                    { id: 'Team', name: 'team'},
-                    { id: 'Class', name: 'classes'},
-                    { id: 'College', name: 'college'},
-                    { id: 'Match', name: 'match'},
+                    { id: 'Association', name: '社团/协会'},
+                    { id: 'Student_Union', name: '学生会'},
+                    { id: 'Team', name: '团队'},
+                    { id: 'Class', name: '班级'},
+                    { id: 'College', name: '学院'},
+                    { id: 'Match', name: '赛事'},
                 ]} />
 
                 <FileInput source="files" label="Related files" accept="application/jpg" placeholder={<p>Drop your file here</p>}>

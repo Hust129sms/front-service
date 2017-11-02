@@ -15,8 +15,9 @@ import { ReviewIcon } from './reviews';
 import { GroupIcon } from './groups'
 
 const items = [
+
+    { name: 'user', icon: <VisitorIcon /> },
     { name: 'groups', icon: <GroupIcon />},
-    { name: 'customers', icon: <VisitorIcon /> },
     { name: 'segments', icon: <LabelIcon /> },
     { name: 'commands', icon: <CommandIcon /> },
     { name: 'products', icon: <ProductIcon /> },
