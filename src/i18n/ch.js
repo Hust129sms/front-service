@@ -1,6 +1,6 @@
 export default {
     pos: {
-        search: '搜索',
+        search: '筛选',
         configuration: '设置',
         language: '语言选择',
         theme: {
@@ -15,14 +15,13 @@ export default {
             new_customers: '成员清单',
             pending_orders: '进行中订单',
             top_up: '充值',
+            history: '订单记录',
             order: {
                 items: 'by %{customer_name}, one item |||| by %{customer_name}, %{nb_items} items',
             },
             welcome: {
                 title: '欢迎使用飞羽管理系统',
-                subtitle: '在这里你可以发送你的消息，管理你的组织',
-                aor_button: 'Admin-on-rest website',
-                demo_button: 'Source for this demo',
+                subtitle: '在这里你可以发送你的消息，管理你的圈子',
             },
         },
     },
@@ -70,21 +69,26 @@ export default {
             fields: {
                 group_type: '圈子类型',
                 group_name: '圈子名称',
-                group_description: '描述一下你的组织',
+                group_description: '描述一下你的圈子',
                 group_shortname: '简称(可选)',
                 telephone_validate: '请输入正确的手机号！',
                 manager_name: '管理者姓名',
-                telephone: '电话',
+                telephone: '手机号',
                 email: '邮箱',
                 email_validate: '请输入正确的邮箱地址！',
                 telephone_visiable: '电话是否公开',
-                tele_public: '公开'
+                tele_public: '公开',
+                id: '编号',
+                name: '名称',
+                type: '类型',
+                members: '成员数',
+                balance: '圈子余额',
             },
             tabs: {
                 details: '圈子信息',
                 manager: '管理者信息',
             },
-            group_type:{
+            group_type: {
                 association: '社团/协会',
                 student_union: '学生会',
                 team: '小型团队/小组',
@@ -92,6 +96,25 @@ export default {
                 college: '学院',
                 match: '活动/赛事参与者',
             },
+        },
+        charge_group_history: {
+            name: '圈存记录 |||| 圈存记录',
+            charge_record: '圈存记录',
+            fields: {
+                id: '订单编号',
+                in_group: '圈存圈子',
+                amount: '金额',
+                time: '订单时间',
+            },
+        },
+        members: {
+            name: '通讯录',
+        },
+        send: {
+            name: '发送',
+        },
+        collect: {
+            name: '统计',
         },
         products: {
             name: '海报 |||| 海报',
@@ -162,8 +185,38 @@ export default {
                 reviewer: 'Reviewer',
             },
         },
-        user:{
-            name:'用户',
-        }
+        user: {
+            name: '信息维护',
+            fields: {
+                qq: 'QQ',
+                email: '电子邮箱',
+                username: '用户名',
+                student_no: '学号',
+                school: '学校',
+                telephone: '手机号',
+                id_card: '身份证号',
+                name: '真实姓名',
+            }
+        },
+        bills: {
+            name: '订单记录',
+            fields: {
+                id: '订单编号',
+                amount: '金额',
+                time: '更新时间',
+                type: '支付类型',
+                status: '订单状态',
+
+            },
+        },
+        templates: {
+            name: '短信模版',
+            fields: {
+                id: '模版编号',
+                group: '所属圈子',
+                content: '模板内容',
+                status: '审核状态',
+            },
+        },
     },
 };

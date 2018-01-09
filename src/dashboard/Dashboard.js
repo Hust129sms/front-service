@@ -100,10 +100,16 @@ class Dashboard extends Component {
                 if (response.status < 200 || response.status >= 300) {
                     throw new Error(response.statusText);
                 }
+                this.setState({ revenue: '请重新登陆' })
                 return response.data;
+            }, (err) => {
+                if (err.status === 403) {
+                    window.location = '#/login';
+                }
+                return { balance: 'error' };
             })
             .then(
-                ({ balance }) => {this.setState({ revenue: balance+'元'
+                ({ balance }) => {this.setState({ revenue: balance + '元'
                 })}
             );
     }
